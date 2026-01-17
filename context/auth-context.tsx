@@ -5,8 +5,9 @@ import { createContext, useState, ReactNode, useEffect } from 'react';
 interface AuthContextType {
     auth: {
         accessToken?: string;
+        role?: string;
     };
-    setAuth: (auth: { accessToken?: string }) => void;
+    setAuth: (auth: { accessToken?: string; role?: string }) => void;
     isAuthenticated: boolean;
     clearAuth: () => void;
     isLoading: boolean;
@@ -15,34 +16,34 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [auth, setAuthState] = useState<{ accessToken?: string }>({});
+    const [auth, setAuthState] = useState<{ accessToken?: string, role?: string }>({});
     const [isLoading, setIsLoading] = useState(true);
 
     const isAuthenticated = !!auth.accessToken;
 
-    const setAuth = (authData: { accessToken?: string }) => {
-        console.log('setAuth called with:', authData);
+    const setAuth = (authData: { accessToken?: string; role?: string }) => {
         setAuthState(authData);
         if (authData.accessToken) {
             localStorage.setItem('accessToken', authData.accessToken);
-            console.log('Token stored in localStorage');
+            localStorage.setItem('role', authData.role || '');
         }
     };
 
     const clearAuth = () => {
-        console.log('clearAuth called');
         setAuthState({});
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('role');
     };
 
     useEffect(() => {
-        console.log('AuthProvider mounting...');
         const storedToken = localStorage.getItem('accessToken');
+        const storedRole = localStorage.getItem('role');
         
         if (storedToken) {
             console.log('Found stored token, setting auth state');
             setAuthState({
-                accessToken: storedToken
+                accessToken: storedToken,
+                role: storedRole || undefined
             });
         } else {
             console.log('No stored token found');

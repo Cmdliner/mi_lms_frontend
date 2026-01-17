@@ -80,34 +80,29 @@ export default function RegisterForm() {
                 return (
                     <>
                         <div className="space-y-2">
-                            <Label htmlFor="date_of_birth" className="text-card-foreground">
-                                Date of Birth *
+                            <Label htmlFor="date_of_birth" className="text-sm font-medium text-slate-700">
+                                Date of Birth
                             </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <Calendar className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="date_of_birth"
-                                    {...registerField('date_of_birth' as any)}
-                                    type="date"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
+                            <Input
+                                id="date_of_birth"
+                                {...registerField('date_of_birth' as any)}
+                                type="date"
+                                className="w-full"
+                                disabled={isPending}
+                            />
                             {(errors as any).date_of_birth && (
-                                <p className="text-xs text-destructive">{(errors as any).date_of_birth?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).date_of_birth?.message}</p>
                             )}
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="blood_group" className="text-card-foreground">
+                            <Label htmlFor="blood_group" className="text-sm font-medium text-slate-700">
                                 Blood Group (Optional)
                             </Label>
                             <Select
                                 id="blood_group"
                                 {...registerField('blood_group' as any)}
-                                className="bg-white"
+                                className="w-full"
                                 disabled={isPending}
                             >
                                 <option value="">Select blood group</option>
@@ -120,15 +115,15 @@ export default function RegisterForm() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="allergies" className="text-card-foreground">
-                                Allergies (Optional, comma-separated)
+                            <Label htmlFor="allergies" className="text-sm font-medium text-slate-700">
+                                Allergies (Optional)
                             </Label>
                             <Input
                                 id="allergies"
                                 {...registerField('allergies' as any)}
                                 type="text"
                                 placeholder="e.g., Peanuts, Dairy"
-                                className="bg-white"
+                                className="w-full"
                                 disabled={isPending}
                             />
                         </div>
@@ -139,50 +134,40 @@ export default function RegisterForm() {
                 return (
                     <>
                         <div className="space-y-2">
-                            <Label htmlFor="qualifications" className="text-card-foreground">
-                                Qualifications * (comma-separated)
+                            <Label htmlFor="qualifications" className="text-sm font-medium text-slate-700">
+                                Qualifications
                             </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <Briefcase className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="qualifications"
-                                    {...registerField('qualifications' as any)}
-                                    type="text"
-                                    placeholder="e.g., B.Ed, M.Sc Mathematics"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
+                            <Input
+                                id="qualifications"
+                                {...registerField('qualifications' as any)}
+                                type="text"
+                                placeholder="e.g., B.Ed, M.Sc Mathematics"
+                                className="w-full"
+                                disabled={isPending}
+                            />
                             {errors.qualifications && (
-                                <p className="text-xs text-destructive">{(errors as any).qualifications?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).qualifications?.message}</p>
                             )}
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="employed_at" className="text-card-foreground">
-                                Employment Date *
+                            <Label htmlFor="employed_at" className="text-sm font-medium text-slate-700">
+                                Employment Date
                             </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <Calendar className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="employed_at"
-                                    {...registerField('employed_at' as any)}
-                                    type="date"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
+                            <Input
+                                id="employed_at"
+                                {...registerField('employed_at' as any)}
+                                type="date"
+                                className="w-full"
+                                disabled={isPending}
+                            />
                             {errors.employed_at && (
-                                <p className="text-xs text-destructive">{(errors as any).employed_at?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).employed_at?.message}</p>
                             )}
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="bio" className="text-card-foreground">
+                            <Label htmlFor="bio" className="text-sm font-medium text-slate-700">
                                 Bio (Optional)
                             </Label>
                             <Input
@@ -190,7 +175,7 @@ export default function RegisterForm() {
                                 {...registerField('bio' as any)}
                                 type="text"
                                 placeholder="Brief introduction"
-                                className="bg-white"
+                                className="w-full"
                                 disabled={isPending}
                             />
                         </div>
@@ -200,10 +185,10 @@ export default function RegisterForm() {
                                 id="is_hod"
                                 type="checkbox"
                                 {...registerField('is_hod' as any)}
-                                className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
+                                className="w-4 h-4 text-teal-600 border-slate-300 rounded focus:ring-teal-500"
                                 disabled={isPending}
                             />
-                            <Label htmlFor="is_hod" className="text-card-foreground cursor-pointer">
+                            <Label htmlFor="is_hod" className="text-sm font-medium text-slate-700 cursor-pointer">
                                 Head of Department
                             </Label>
                         </div>
@@ -214,35 +199,30 @@ export default function RegisterForm() {
                 return (
                     <>
                         <div className="space-y-2">
-                            <Label htmlFor="occupation" className="text-card-foreground">
-                                Occupation *
+                            <Label htmlFor="occupation" className="text-sm font-medium text-slate-700">
+                                Occupation
                             </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <Briefcase className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="occupation"
-                                    {...registerField('occupation' as any)}
-                                    type="text"
-                                    placeholder="Your occupation"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
+                            <Input
+                                id="occupation"
+                                {...registerField('occupation' as any)}
+                                type="text"
+                                placeholder="Your occupation"
+                                className="w-full"
+                                disabled={isPending}
+                            />
                             {errors.occupation && (
-                                <p className="text-xs text-destructive">{(errors as any).occupation?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).occupation?.message}</p>
                             )}
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="marital_status" className="text-card-foreground">
-                                Marital Status *
+                            <Label htmlFor="marital_status" className="text-sm font-medium text-slate-700">
+                                Marital Status
                             </Label>
                             <Select
                                 id="marital_status"
                                 {...registerField('marital_status' as any)}
-                                className="bg-white"
+                                className="w-full"
                                 disabled={isPending}
                             >
                                 {Object.values(MaritalStatus).map((status) => (
@@ -252,29 +232,24 @@ export default function RegisterForm() {
                                 ))}
                             </Select>
                             {errors.marital_status && (
-                                <p className="text-xs text-destructive">{(errors as any).marital_status?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).marital_status?.message}</p>
                             )}
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="home_address" className="text-card-foreground">
-                                Home Address *
+                            <Label htmlFor="home_address" className="text-sm font-medium text-slate-700">
+                                Home Address
                             </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <House className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="home_address"
-                                    {...registerField('home_address' as any)}
-                                    type="text"
-                                    placeholder="Your home address"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
+                            <Input
+                                id="home_address"
+                                {...registerField('home_address' as any)}
+                                type="text"
+                                placeholder="Your home address"
+                                className="w-full"
+                                disabled={isPending}
+                            />
                             {errors.home_address && (
-                                <p className="text-xs text-destructive">{(errors as any).home_address?.message}</p>
+                                <p className="text-sm text-red-600">{(errors as any).home_address?.message}</p>
                             )}
                         </div>
                     </>
@@ -286,190 +261,159 @@ export default function RegisterForm() {
     };
 
     return (
-        <Card className="w-full max-w-2xl border-border shadow-lg">
-            <CardHeader className="space-y-2 text-center pb-6">
-                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2">
-                    <UserCircle className="w-10 h-10 text-primary" weight="duotone" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-foreground">Create Account</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                    Join our learning management system
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                    <div className="space-y-2">
-                        <Label htmlFor="role" className="text-card-foreground">
-                            Register As *
-                        </Label>
-                        <Select
-                            id="role"
-                            {...registerField('role')}
-                            onChange={(e) => handleRoleChange(e.target.value as UserRole)}
-                            className="bg-white"
-                        >
-                            <option value={UserRole.STUDENT}>Student</option>
-                            <option value={UserRole.TEACHER}>Teacher</option>
-                            <option value={UserRole.GUARDIAN}>Guardian</option>
-                        </Select>
-                        {errors.role && (
-                            <p className="text-xs text-destructive">{String(errors.role.message)}</p>
-                        )}
-                    </div>
+        <div className="w-full">
+            {/* Header */}
+            <div className="mb-8">
+                <h2 className="text-3xl font-semibold text-slate-900 mb-2">Create Account</h2>
+                <p className="text-slate-600">Join our learning management system today</p>
+            </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div className="space-y-2">
-                            <Label htmlFor="first_name" className="text-card-foreground">
-                                First Name *
-                            </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <User className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="first_name"
-                                    {...registerField('first_name')}
-                                    type="text"
-                                    placeholder="John"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
-                            {errors.first_name && (
-                                <p className="text-xs text-destructive">{String(errors.first_name.message)}</p>
-                            )}
-                        </div>
-
-                        <div className="space-y-2">
-                            <Label htmlFor="last_name" className="text-card-foreground">
-                                Last Name *
-                            </Label>
-                            <div className="relative">
-                                <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <User className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <Input
-                                    id="last_name"
-                                    {...registerField('last_name')}
-                                    type="text"
-                                    placeholder="Doe"
-                                    className="pl-11 bg-white"
-                                    disabled={isPending}
-                                />
-                            </div>
-                            {errors.last_name && (
-                                <p className="text-xs text-destructive">{String(errors.last_name.message)}</p>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="email" className="text-card-foreground">
-                            Email *
-                        </Label>
-                        <div className="relative">
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <EnvelopeSimple className="w-5 h-5 text-muted-foreground" />
-                            </div>
-                            <Input
-                                id="email"
-                                {...registerField('email')}
-                                type="email"
-                                placeholder="john.doe@example.com"
-                                className="pl-11 bg-white"
-                                disabled={isPending}
-                            />
-                        </div>
-                        {errors.email && (
-                            <p className="text-xs text-destructive">{String(errors.email.message)}</p>
-                        )}
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="password" className="text-card-foreground">
-                            Password *
-                        </Label>
-                        <div className="relative">
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <Lock className="w-5 h-5 text-muted-foreground" />
-                            </div>
-                            <Input
-                                id="password"
-                                {...registerField('password')}
-                                type="password"
-                                placeholder="Minimum 6 characters"
-                                className="pl-11 bg-white"
-                                disabled={isPending}
-                            />
-                        </div>
-                        {errors.password && (
-                            <p className="text-xs text-destructive">{String(errors.password.message)}</p>
-                        )}
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="gender" className="text-card-foreground">
-                            Gender *
-                        </Label>
-                        <Select
-                            id="gender"
-                            {...registerField('gender')}
-                            className="bg-white"
-                            disabled={isPending}
-                        >
-                            <option value={Gender.M}>Male</option>
-                            <option value={Gender.F}>Female</option>
-                        </Select>
-                        {errors.gender && (
-                            <p className="text-xs text-destructive">{String(errors.gender.message)}</p>
-                        )}
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="profile_image" className="text-card-foreground">
-                            Profile Image (Optional)
-                        </Label>
-                        <div className="relative">
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <ImageIcon className="w-5 h-5 text-muted-foreground" />
-                            </div>
-                            <Input
-                                id="profile_image"
-                                type="file"
-                                accept="image/*"
-                                onChange={handleImageChange}
-                                className="pl-11 bg-white file:mr-4 file:py-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
-                                disabled={isPending}
-                            />
-                        </div>
-                        {profileImage && (
-                            <p className="text-xs text-muted-foreground">
-                                Selected: {profileImage.name}
-                            </p>
-                        )}
-                    </div>
-
-                    {renderRoleSpecificFields()}
-
-                    <Button
-                        type="submit"
-                        className="w-full h-11 text-base font-medium"
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Role Selection */}
+                <div className="space-y-2">
+                    <Label htmlFor="role" className="text-sm font-medium text-slate-700">
+                        Register As
+                    </Label>
+                    <Select
+                        id="role"
+                        {...registerField('role')}
+                        onChange={(e) => handleRoleChange(e.target.value as UserRole)}
+                        className="w-full"
                         disabled={isPending}
                     >
-                        {isPending ? 'Creating Account...' : 'Create Account'}
-                    </Button>
+                        <option value={UserRole.STUDENT}>Student</option>
+                        <option value={UserRole.TEACHER}>Teacher</option>
+                        <option value={UserRole.GUARDIAN}>Guardian</option>
+                    </Select>
+                    {errors.role && (
+                        <p className="text-sm text-red-600">{String(errors.role.message)}</p>
+                    )}
+                </div>
 
-                    <p className="text-center text-sm text-muted-foreground">
-                        Already have an account?{' '}
-                        <a
-                            href="/login"
-                            className="font-medium text-primary hover:underline transition-colors"
-                        >
-                            Sign in here
-                        </a>
-                    </p>
-                </form>
-            </CardContent>
-        </Card>
+                {/* Name Fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="first_name" className="text-sm font-medium text-slate-700">
+                            First Name
+                        </Label>
+                        <Input
+                            id="first_name"
+                            {...registerField('first_name')}
+                            type="text"
+                            placeholder="John"
+                            className="w-full"
+                            disabled={isPending}
+                        />
+                        {errors.first_name && (
+                            <p className="text-sm text-red-600">{String(errors.first_name.message)}</p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="last_name" className="text-sm font-medium text-slate-700">
+                            Last Name
+                        </Label>
+                        <Input
+                            id="last_name"
+                            {...registerField('last_name')}
+                            type="text"
+                            placeholder="Doe"
+                            className="w-full"
+                            disabled={isPending}
+                        />
+                        {errors.last_name && (
+                            <p className="text-sm text-red-600">{String(errors.last_name.message)}</p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Email */}
+                <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium text-slate-700">
+                        Email Address
+                    </Label>
+                    <Input
+                        id="email"
+                        {...registerField('email')}
+                        type="email"
+                        placeholder="john.doe@example.com"
+                        className="w-full"
+                        disabled={isPending}
+                    />
+                    {errors.email && (
+                        <p className="text-sm text-red-600">{String(errors.email.message)}</p>
+                    )}
+                </div>
+
+                {/* Password */}
+                <div className="space-y-2">
+                    <Label htmlFor="password" className="text-sm font-medium text-slate-700">
+                        Password
+                    </Label>
+                    <Input
+                        id="password"
+                        {...registerField('password')}
+                        type="password"
+                        placeholder="Minimum 6 characters"
+                        className="w-full"
+                        disabled={isPending}
+                    />
+                    {errors.password && (
+                        <p className="text-sm text-red-600">{String(errors.password.message)}</p>
+                    )}
+                </div>
+
+                {/* Gender */}
+                <div className="space-y-2">
+                    <Label htmlFor="gender" className="text-sm font-medium text-slate-700">
+                        Gender
+                    </Label>
+                    <Select
+                        id="gender"
+                        {...registerField('gender')}
+                        className="w-full"
+                        disabled={isPending}
+                    >
+                        <option value={Gender.M}>Male</option>
+                        <option value={Gender.F}>Female</option>
+                    </Select>
+                    {errors.gender && (
+                        <p className="text-sm text-red-600">{String(errors.gender.message)}</p>
+                    )}
+                </div>
+
+                {/* Profile Image */}
+                <div className="space-y-2">
+                    <Label htmlFor="profile_image" className="text-sm font-medium text-slate-700">
+                        Profile Image (Optional)
+                    </Label>
+                    <Input
+                        id="profile_image"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="w-full"
+                        disabled={isPending}
+                    />
+                    {profileImage && (
+                        <p className="text-sm text-slate-600">
+                            Selected: {profileImage.name}
+                        </p>
+                    )}
+                </div>
+
+                {/* Role-Specific Fields */}
+                {renderRoleSpecificFields()}
+
+                {/* Submit Button */}
+                <Button
+                    type="submit"
+                    className="w-full h-11 text-base font-semibold bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors"
+                    disabled={isPending}
+                >
+                    {isPending ? 'Creating Account...' : 'Create Account'}
+                </Button>
+            </form>
+        </div>
     );
 }

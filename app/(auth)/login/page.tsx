@@ -46,7 +46,7 @@ export default function LoginPage() {
                             alt={`Professional workspace ${index + 1}`}
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-primary/30" />
+                        <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-900/50 to-primary/30" />
                     </div>
                 ))}
 

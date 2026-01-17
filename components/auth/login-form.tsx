@@ -60,23 +60,16 @@ export default function LoginForm() {
     const onSubmit = async (data: any) => {
         setIsLoading(true);
         try {
-            console.log('Attempting login with:', data);
             const response = await api.post('/auth/login', data, {
                 withCredentials: true
             });
 
-            console.log('Login response:', response.data);
 
             if (response.data.success && response.data.access_token) {
                 const accessToken = response.data.access_token;
-                
-                // Store in localStorage
-                localStorage.setItem('accessToken', accessToken);
-                
-                // Update auth context
-                setAuth({
-                    accessToken: accessToken
-                });
+                const role = response.data.role;
+                                
+                setAuth({accessToken,role});
 
                 toast.success('Welcome back!');
                 router.push('/dashboard');

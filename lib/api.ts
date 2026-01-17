@@ -70,9 +70,7 @@ export async function registerUser(data: RegisterFormValues): Promise<AuthRespon
     }
 
     const res = await api.post(API_ENDPOINTS.AUTH.REGISTER, formData, {
-        headers: {
-            'Content-Type': 'multipart/form-data',
-        },
+        headers: {'Content-Type': 'multipart/form-data'},
         withCredentials: true,
     });
 
