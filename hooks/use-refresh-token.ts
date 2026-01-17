@@ -10,7 +10,6 @@ const useRefreshToken = () => {
         });
 
         setAuth({
-            user: response.data.user,
             accessToken: response.data.access_token
         });
 

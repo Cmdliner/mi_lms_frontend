@@ -18,11 +18,11 @@ interface DashboardHeaderProps {
 
 export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   const router = useRouter();
-  const { logout } = useAuth();
+  const { clearAuth } = useAuth();
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const handleLogout = () => {
-    logout();
+    clearAuth();
     router.push('/login');
   };
 

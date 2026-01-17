@@ -1,3 +1,4 @@
+import { IconProps } from '@phosphor-icons/react';
 import {
   BookOpen,
   CalendarBlank,
@@ -10,7 +11,6 @@ import {
   Note,
   UserCircle,
   Users,
-  IconProps,
 } from '@phosphor-icons/react/dist/ssr';
 
 export interface NavLink {
